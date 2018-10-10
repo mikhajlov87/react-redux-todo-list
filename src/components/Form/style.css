@@ -1,0 +1,8 @@
+.form-field {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0 60px;
+    max-height: 34px;
+    overflow: hidden;
+}
