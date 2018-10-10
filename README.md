@@ -11,3 +11,6 @@
 2. If you checkbox line - it should become strikeout.
 3. If you click on the cross, the item should disappear from the list.
 4. Use create-react-app for project creation.
+
+### Working example
+[react-redux-todo-list](https://react-redux-simple-todo-list.herokuapp.com/)
