@@ -1,3 +1,4 @@
+import uniqueId from 'lodash/uniqueId';
 import * as types from '../constants/todos';
 
 export const getInitialTodos = () => (dispatch) => {
@@ -7,7 +8,14 @@ export const getInitialTodos = () => (dispatch) => {
     .then(res => res.json())
     .then((data) => {
       const todoItems = data.slice(0, 2);
-      dispatch(getTodoItemsFulfilled(todoItems));
+      const todoItemsWithUniqueIds = todoItems.map((todoItem) => {
+        delete todoItem.userId;
+        return {
+          ...todoItem,
+          id: uniqueId(),
+        };
+      });
+      dispatch(getTodoItemsFulfilled(todoItemsWithUniqueIds));
     })
     .catch((err) => {
       dispatch(getTodoItemsRejected());

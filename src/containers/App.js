@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import uniqueId from 'lodash/uniqueId';
 import Header from '../components/Header';
 import H1 from '../components/H1';
 import Main from '../components/Main';
@@ -19,7 +20,7 @@ class App extends React.Component {
 
   render() {
     const { fulfilled, pending, todos } = this.props;
-    const nextItemId = todos.length + 1;
+    const nextItemId = uniqueId();
     return (
       <div className="app__container">
         <Header>
